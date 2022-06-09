@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <ul>
-          <li v-for="film in films" :key="film.id">
+          <li v-for="film in SearchMovies" :key="film.id">
             <span>Titolo del Film : {{ film.title }}</span>
             <span>Titolo Originale : {{ film.original_title }}</span>
             <span>Lingua : {{ film.original_language }}</span>
@@ -27,21 +27,23 @@ export default {
       films: [],
     };
   },
-  created() {
-    axios
-      .get("https://api.themoviedb.org/3/search/movie", {
-        params: {
-          api_key: "a7f35c47cf7e3c0ea7a66c66aec0b919",
-          query: "prova",
-          language: "it-IT",
-        },
-      })
-      .then((response) => {
-        this.films = response.data.results;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  methods: {
+    SearchMovies() {
+      return axios
+        .get("https://api.themoviedb.org/3/search/movie", {
+          params: {
+            api_key: "a7f35c47cf7e3c0ea7a66c66aec0b919",
+            query: this.search,
+            language: "it-IT",
+          },
+        })
+        .then((response) => {
+          this.films = response.data.results;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
