@@ -12,7 +12,11 @@ export default {};
 
 <style lang="scss">
 header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: black;
+
   .logo img {
     padding: 0.625rem;
     max-width: 9.375rem;
