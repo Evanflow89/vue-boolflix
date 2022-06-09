@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import search from "../../shared/search";
 export default {
   name: "SearchBar",
   data() {

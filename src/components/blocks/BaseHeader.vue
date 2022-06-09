@@ -3,11 +3,17 @@
     <div class="logo">
       <img src="../../assets/img/NetflixLogo.png" alt="Netflix Logo" />
     </div>
+    <div class="searchbar">
+      <search-bar />
+    </div>
   </header>
 </template>
 
 <script>
-export default {};
+import SearchBar from "../commons/SearchBar.vue";
+export default {
+  components: { SearchBar },
+};
 </script>
 
 <style lang="scss">
