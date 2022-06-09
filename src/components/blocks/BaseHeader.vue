@@ -11,4 +11,11 @@ export default {};
 </script>
 
 <style lang="scss">
+header {
+  background-color: black;
+  .logo img {
+    padding: 0.625rem;
+    max-width: 9.375rem;
+  }
+}
 </style>
