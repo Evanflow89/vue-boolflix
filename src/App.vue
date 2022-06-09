@@ -1,11 +1,16 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <base-header />
+  </div>
 </template>
 
 <script>
+import BaseHeader from "./components/blocks/BaseHeader.vue";
 export default {
   name: "App",
-  components: {},
+  components: {
+    BaseHeader,
+  },
 };
 </script>
 
