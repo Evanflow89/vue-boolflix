@@ -36,7 +36,9 @@
               <span>Titolo Originale : {{ serie.original_name }}</span>
               <span
                 >Lingua :
-                <country-flag :country="serie.original_language" size="small"
+                <country-flag
+                  :country="flag(serie.original_language)"
+                  size="small"
               /></span>
               <span class="stars" v-html="stars(serie.vote_average)"></span>
             </li>
@@ -74,6 +76,15 @@ export default {
         starFont += `<i class="fa-solid fa-star"></i>`;
       }
       return starFont;
+    },
+    flag(language) {
+      let en = "en";
+      let eng = "eng";
+      if (language === en) {
+        return language === eng;
+      } else {
+        return language;
+      }
     },
   },
 };
