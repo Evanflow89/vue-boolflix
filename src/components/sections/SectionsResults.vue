@@ -6,11 +6,18 @@
           <h2>Movies</h2>
           <ul>
             <li v-for="film in data.films" :key="film.id">
+              <img :src="imgPath(film.poster_path)" alt="" />
               <span>Titolo del Film : {{ film.title }}</span>
               <span>Titolo Originale : {{ film.original_title }}</span>
               <span
                 >Lingua :
-                <country-flag :country="serie.original_language" size="small"
+                <country-flag
+                  :country="
+                    film.original_language == 'en'
+                      ? film.original_language == 'gb'
+                      : film.original_language
+                  "
+                  size="small"
               /></span>
               <span>Voto Medio :{{ film.vote_average }}</span>
             </li>
@@ -54,6 +61,11 @@ export default {
       search,
       data,
     };
+  },
+  methods: {
+    imgPath(url) {
+      return `https://image.tmdb.org/t/p/w185/${url}`;
+    },
   },
 };
 </script>
