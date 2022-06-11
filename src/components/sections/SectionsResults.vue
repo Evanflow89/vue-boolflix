@@ -69,7 +69,8 @@ export default {
     },
     stars(voto) {
       let starFont = "";
-      for (let i = 0; i < Math.ceil(voto / 2); i++) {
+      let rating = Math.ceil(voto / 2);
+      for (let i = 0; i < rating; i++) {
         starFont += `<i class="fa-solid fa-star"></i>`;
       }
       return starFont;
