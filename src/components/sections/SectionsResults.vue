@@ -6,7 +6,7 @@
           <h2>Movies</h2>
           <ul>
             <li v-for="film in data.films" :key="film.id">
-              <img :src="imgPath(film.poster_path)" alt="" />
+              <img :src="imgPath(film.poster_path)" :alt="film.title" />
               <span>Titolo del Film : {{ film.title }}</span>
               <span>Titolo Originale : {{ film.original_title }}</span>
               <span
@@ -31,6 +31,7 @@
           <h2>Series</h2>
           <ul>
             <li v-for="serie in data.series" :key="serie.id">
+              <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
               <span>Titolo della Serie : {{ serie.name }}</span>
               <span>Titolo Originale : {{ serie.original_name }}</span>
               <span
@@ -82,5 +83,11 @@ ul li {
 }
 li span {
   font-weight: 600;
+}
+
+li img {
+  max-width: 12.5rem;
+  margin: auto;
+  padding-bottom: 1.25rem;
 }
 </style>
