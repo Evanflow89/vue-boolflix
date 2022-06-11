@@ -19,7 +19,7 @@
                   "
                   size="small"
               /></span>
-              <span>Voto Medio :{{ film.vote_average }}</span>
+              <span class="stars" v-html="stars(film.vote_average)"></span>
             </li>
           </ul>
         </div>
@@ -38,7 +38,7 @@
                 >Lingua :
                 <country-flag :country="serie.original_language" size="small"
               /></span>
-              <span>Voto Medio :{{ serie.vote_average }}</span>
+              <span class="stars" v-html="stars(serie.vote_average)"></span>
             </li>
           </ul>
         </div>
@@ -67,6 +67,13 @@ export default {
     imgPath(url) {
       return `https://image.tmdb.org/t/p/w185/${url}`;
     },
+    stars(voto) {
+      let starFont = "";
+      for (let i = 0; i < Math.ceil(voto / 2); i++) {
+        starFont += `<i class="fa-solid fa-star"></i>`;
+      }
+      return starFont;
+    },
   },
 };
 </script>
@@ -89,5 +96,8 @@ li img {
   max-width: 12.5rem;
   margin: auto;
   padding-bottom: 1.25rem;
+}
+.stars {
+  color: #f1c800;
 }
 </style>
