@@ -8,7 +8,10 @@
             <li v-for="film in data.films" :key="film.id">
               <span>Titolo del Film : {{ film.title }}</span>
               <span>Titolo Originale : {{ film.original_title }}</span>
-              <span>Lingua : {{ film.original_language }}</span>
+              <span
+                >Lingua :
+                <country-flag :country="serie.original_language" size="small"
+              /></span>
               <span>Voto Medio :{{ film.vote_average }}</span>
             </li>
           </ul>
@@ -23,7 +26,10 @@
             <li v-for="serie in data.series" :key="serie.id">
               <span>Titolo della Serie : {{ serie.name }}</span>
               <span>Titolo Originale : {{ serie.original_name }}</span>
-              <span>Lingua : {{ serie.original_language }}</span>
+              <span
+                >Lingua :
+                <country-flag :country="serie.original_language" size="small"
+              /></span>
               <span>Voto Medio :{{ serie.vote_average }}</span>
             </li>
           </ul>
@@ -36,9 +42,13 @@
 <script>
 import search from "../../shared/search.js";
 import data from "../../shared/data.js";
+import CountryFlag from "vue-country-flag";
 
 export default {
   name: "SectionsResults",
+  components: {
+    CountryFlag,
+  },
   data() {
     return {
       search,
