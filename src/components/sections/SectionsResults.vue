@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <section class="Movies">
+    <section class="Results">
       <div class="row">
         <card-net />
       </div>

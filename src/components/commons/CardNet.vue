@@ -5,7 +5,7 @@
       <li
         v-for="film in data.films"
         :key="film.id"
-        class="col-lg-2 justify-content-center"
+        class="col-12 col-sm-6 col-md-4 col-lg-2 justify-content-center"
       >
         <div class="card d-flex justify-content-center">
           <div class="cover">
@@ -21,32 +21,40 @@
                 size="small"
             /></span>
             <span class="stars" v-html="stars(film.vote_average)"></span>
+            <span>Overview: {{ film.overview }}</span>
           </div>
         </div>
       </li>
     </ul>
-
-    <section class="Series">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h2>Series</h2>
-          <ul>
-            <li v-for="serie in data.series" :key="serie.id">
-              <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
-              <span>Titolo della Serie : {{ serie.name }}</span>
-              <span>Titolo Originale : {{ serie.original_name }}</span>
-              <span
-                >Lingua :
-                <country-flag
-                  :country="flag(serie.original_language)"
-                  size="small"
-              /></span>
-              <span class="stars" v-html="stars(serie.vote_average)"></span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <div class="container">
+      <section class="Series">
+        <h2 class="text-center">Series</h2>
+        <ul class="d-flex justify-content-center">
+          <li
+            v-for="serie in data.series"
+            :key="serie.id"
+            class="col-12 col-sm-6 col-md-4 col-lg-2 justify-content-center"
+          >
+            <div class="card d-flex justify-content-center">
+              <div class="cover">
+                <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
+              </div>
+              <div class="content_card">
+                <span>Titolo della Serie : {{ serie.name }}</span>
+                <span>Titolo Originale : {{ serie.original_name }}</span>
+                <span
+                  >Lingua :
+                  <country-flag
+                    :country="flag(serie.original_language)"
+                    size="small"
+                /></span>
+                <span class="stars" v-html="stars(serie.vote_average)"></span>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -107,6 +115,8 @@ ul {
 ul li {
   display: flex;
   align-items: center;
+  margin-bottom: 1.25rem;
+  font-size: 0.75rem;
 }
 
 li span {
