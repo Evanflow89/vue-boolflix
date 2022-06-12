@@ -63,6 +63,9 @@ export default {
   },
   methods: {
     imgPath(url) {
+      if (url == null) {
+        url = `https://placeimg.com/300/300/any/sepia`;
+      }
       return `https://image.tmdb.org/t/p/w185/${url}`;
     },
     stars(voto) {
