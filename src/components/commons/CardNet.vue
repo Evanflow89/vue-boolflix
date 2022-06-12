@@ -26,35 +26,34 @@
         </div>
       </li>
     </ul>
-    <div class="container">
-      <section class="Series">
-        <h2 class="text-center">Series</h2>
-        <ul class="d-flex justify-content-center">
-          <li
-            v-for="serie in data.series"
-            :key="serie.id"
-            class="col-12 col-sm-6 col-md-4 col-lg-2 justify-content-center"
-          >
-            <div class="card d-flex justify-content-center">
-              <div class="cover">
-                <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
-              </div>
-              <div class="content_card">
-                <span>Titolo della Serie : {{ serie.name }}</span>
-                <span>Titolo Originale : {{ serie.original_name }}</span>
-                <span
-                  >Lingua :
-                  <country-flag
-                    :country="flag(serie.original_language)"
-                    size="small"
-                /></span>
-                <span class="stars" v-html="stars(serie.vote_average)"></span>
-              </div>
+    <section class="Series">
+      <h2 class="text-center">Series</h2>
+      <ul class="d-flex justify-content-center">
+        <li
+          v-for="serie in data.series"
+          :key="serie.id"
+          class="col-12 col-sm-6 col-md-4 col-lg-2 justify-content-center"
+        >
+          <div class="card d-flex justify-content-center">
+            <div class="cover">
+              <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
             </div>
-          </li>
-        </ul>
-      </section>
-    </div>
+            <div class="content_card">
+              <span>Titolo della Serie : {{ serie.name }}</span>
+              <span>Titolo Originale : {{ serie.original_name }}</span>
+              <span
+                >Lingua :
+                <country-flag
+                  :country="flag(serie.original_language)"
+                  size="small"
+              /></span>
+              <span class="stars" v-html="stars(serie.vote_average)"></span>
+              <span>Overview: {{ serie.overview }}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
@@ -106,6 +105,10 @@ export default {
 </script>
 
 <style lang="scss">
+h2 {
+  padding-bottom: 1.25rem;
+  text-transform: uppercase;
+}
 ul {
   list-style: none;
   flex-wrap: wrap;
