@@ -1,9 +1,13 @@
 <template>
   <div class="container">
-    <h2>Movies</h2>
+    <h2 class="text-center">Movies</h2>
     <ul class="d-flex justify-content-center">
-      <li v-for="film in data.films" :key="film.id" class="col-xl-2">
-        <div class="card">
+      <li
+        v-for="film in data.films"
+        :key="film.id"
+        class="col-lg-2 justify-content-center"
+      >
+        <div class="card d-flex justify-content-center">
           <div class="cover">
             <img :src="imgPath(film.poster_path)" :alt="film.title" />
           </div>
@@ -96,8 +100,8 @@ export default {
 <style lang="scss">
 ul {
   list-style: none;
-  gap: 1.25rem;
   flex-wrap: wrap;
+  gap: 0.625rem;
 }
 
 ul li {

@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <section class="Movies">
-      <div class="row d-flex">
+      <div class="row">
         <card-net />
       </div>
     </section>
