@@ -28,11 +28,7 @@
           <h2>Series</h2>
           <ul>
             <li v-for="serie in data.series" :key="serie.id">
-              <img
-                class="img-fluid"
-                :src="imgPath(serie.poster_path)"
-                :alt="serie.name"
-              />
+              <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
               <span>Titolo della Serie : {{ serie.name }}</span>
               <span>Titolo Originale : {{ serie.original_name }}</span>
               <span
@@ -104,12 +100,17 @@ ul {
   flex-wrap: wrap;
 }
 
+ul li {
+  display: flex;
+  align-items: center;
+}
+
 li span {
   font-weight: 600;
 }
 
 li img {
-  margin: auto;
+  width: 100%;
 }
 
 .content_card {
