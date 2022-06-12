@@ -12,11 +12,7 @@
               <span
                 >Lingua :
                 <country-flag
-                  :country="
-                    film.original_language == 'en'
-                      ? film.original_language == 'gb'
-                      : film.original_language
-                  "
+                  :country="flag(film.original_language)"
                   size="small"
               /></span>
               <span class="stars" v-html="stars(film.vote_average)"></span>
@@ -83,10 +79,8 @@ export default {
       return `${starFont}${emptyFont}`;
     },
     flag(language) {
-      let en = "en";
-      let eng = "eng";
-      if (language === en) {
-        return language === eng;
+      if (language === "en") {
+        return `gb`;
       } else {
         return language;
       }
