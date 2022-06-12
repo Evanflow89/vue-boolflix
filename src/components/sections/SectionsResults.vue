@@ -63,8 +63,8 @@ export default {
   },
   methods: {
     imgPath(url) {
-      if (url == null) {
-        url = `https://placeimg.com/300/300/any/sepia`;
+      if (url === null) {
+        return `https://www.clker.com/cliparts/f/Z/G/4/h/Q/no-image-available-md.png`;
       }
       return `https://image.tmdb.org/t/p/w185/${url}`;
     },
