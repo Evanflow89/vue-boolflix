@@ -71,11 +71,16 @@ export default {
     },
     stars(voto) {
       let starFont = "";
+      let emptyFont = "";
       let rating = Math.ceil(voto / 2);
+      let total = 5;
       for (let i = 0; i < rating; i++) {
         starFont += `<i class="fa-solid fa-star"></i>`;
       }
-      return starFont;
+      for (let i = 0; i < total - rating; i++) {
+        emptyFont += `<i class="fa-regular fa-star"></i>`;
+      }
+      return `${starFont}${emptyFont}`;
     },
     flag(language) {
       let en = "en";
