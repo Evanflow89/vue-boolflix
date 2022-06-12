@@ -6,16 +6,22 @@
           <h2>Movies</h2>
           <ul>
             <li v-for="film in data.films" :key="film.id">
-              <img :src="imgPath(film.poster_path)" :alt="film.title" />
-              <span>Titolo del Film : {{ film.title }}</span>
-              <span>Titolo Originale : {{ film.original_title }}</span>
-              <span
-                >Lingua :
-                <country-flag
-                  :country="flag(film.original_language)"
-                  size="small"
-              /></span>
-              <span class="stars" v-html="stars(film.vote_average)"></span>
+              <div class="card">
+                <div class="cover">
+                  <img :src="imgPath(film.poster_path)" :alt="film.title" />
+                </div>
+                <div class="content_card">
+                  <span>Titolo del Film : {{ film.title }}</span>
+                  <span>Titolo Originale : {{ film.original_title }}</span>
+                  <span
+                    >Lingua :
+                    <country-flag
+                      :country="flag(film.original_language)"
+                      size="small"
+                  /></span>
+                  <span class="stars" v-html="stars(film.vote_average)"></span>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
@@ -111,6 +117,30 @@ li img {
   margin: auto;
   padding-bottom: 1.25rem;
 }
+
+.card {
+  width: calc(25% - 5px);
+}
+
+.content_card {
+  background-color: black;
+  color: white;
+  display: none;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+}
+
+ul li:hover {
+  .content_card {
+    display: flex;
+  }
+  .cover {
+    display: none;
+  }
+}
+
 .stars {
   color: #f1c800;
 }
