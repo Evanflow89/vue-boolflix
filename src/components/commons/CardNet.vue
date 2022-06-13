@@ -7,22 +7,18 @@
         :key="film.id"
         class="col-12 col-sm-6 col-md-4 col-lg-2 justify-content-center"
       >
-        <div class="card d-flex justify-content-center">
-          <div class="cover">
-            <img :src="imgPath(film.poster_path)" :alt="film.title" />
-          </div>
-          <div class="content_card">
-            <span>Titolo del Film : {{ film.title }}</span>
-            <span>Titolo Originale : {{ film.original_title }}</span>
-            <span
-              >Lingua :
-              <country-flag
-                :country="flag(film.original_language)"
-                size="small"
-            /></span>
-            <span class="stars" v-html="stars(film.vote_average)"></span>
-            <span>Overview: {{ film.overview }}</span>
-          </div>
+        <div class="cover">
+          <img :src="imgPath(film.poster_path)" :alt="film.title" />
+        </div>
+        <div class="content_card">
+          <span>Titolo del Film : {{ film.title }}</span>
+          <span>Titolo Originale : {{ film.original_title }}</span>
+          <span
+            >Lingua :
+            <country-flag :country="flag(film.original_language)" size="small"
+          /></span>
+          <span class="stars" v-html="stars(film.vote_average)"></span>
+          <span>Overview: {{ film.overview }}</span>
         </div>
       </li>
     </ul>
@@ -34,22 +30,20 @@
           :key="serie.id"
           class="col-12 col-sm-6 col-md-4 col-lg-2 justify-content-center"
         >
-          <div class="card d-flex justify-content-center">
-            <div class="cover">
-              <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
-            </div>
-            <div class="content_card">
-              <span>Titolo della Serie : {{ serie.name }}</span>
-              <span>Titolo Originale : {{ serie.original_name }}</span>
-              <span
-                >Lingua :
-                <country-flag
-                  :country="flag(serie.original_language)"
-                  size="small"
-              /></span>
-              <span class="stars" v-html="stars(serie.vote_average)"></span>
-              <span>Overview: {{ serie.overview }}</span>
-            </div>
+          <div class="cover">
+            <img :src="imgPath(serie.poster_path)" :alt="serie.name" />
+          </div>
+          <div class="content_card">
+            <span>Titolo della Serie : {{ serie.name }}</span>
+            <span>Titolo Originale : {{ serie.original_name }}</span>
+            <span
+              >Lingua :
+              <country-flag
+                :country="flag(serie.original_language)"
+                size="small"
+            /></span>
+            <span class="stars" v-html="stars(serie.vote_average)"></span>
+            <span>Overview: {{ serie.overview }}</span>
           </div>
         </li>
       </ul>
@@ -113,7 +107,7 @@ h2 {
 ul {
   list-style: none;
   flex-wrap: wrap;
-  gap: 0.625rem;
+  gap: 0.3125rem;
 }
 
 ul li {
@@ -121,10 +115,12 @@ ul li {
   align-items: center;
   margin-bottom: 1.25rem;
   font-size: 0.75rem;
+  overflow-y: auto;
 }
 
 li span {
   font-weight: 600;
+  width: 100%;
 }
 
 li img {
@@ -135,16 +131,16 @@ li img {
   background-color: black;
   color: white;
   display: none;
-  flex-direction: column;
-  flex-wrap: wrap;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  overflow-y: auto;
 }
 
 ul li:hover {
   .content_card {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
   .cover {
     display: none;
